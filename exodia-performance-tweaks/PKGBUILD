@@ -1,0 +1,32 @@
+#
+# Maintainer: Mahmoud Mohamed (00xWolf) <mmsaeed509@gmail.com> , <https://github.com/mmsaeed509>
+#
+
+pkgname=exodia-performance-tweaks
+pkgdesc='Tweaks to improve performance'
+pkgver=2.1.2
+pkgrel=1
+arch=('any')
+url="https://github.com/Exodia-OS/exodia-performance-tweaks"
+license=('GPL')
+depends=('ananicy-cpp'
+         'ananicy-rules-git'
+         'hdparm'
+         'irqbalance'
+         'preload')
+makedepends=('coreutils')
+conflicts=('exodia-powersave-tweaks' 'tlp' 'auto-cpufreq' 'thermald')
+install=$pkgname.install
+
+prepare() {
+
+	cp -af ../usr ${srcdir}
+
+}
+
+package() {
+
+    install -d $pkgdir/usr/lib
+    cp -rf $srcdir/usr $pkgdir
+
+}

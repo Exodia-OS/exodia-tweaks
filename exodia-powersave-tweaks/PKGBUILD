@@ -1,0 +1,28 @@
+#
+# Maintainer: Mahmoud Mohamed (00xWolf) <mmsaeed509@gmail.com> , <https://github.com/mmsaeed509>
+#
+
+pkgname=exodia-powersave-tweaks
+pkgdesc='Tweaks to preserve power'
+pkgver=2.0.0
+pkgrel=1
+arch=('any')
+url="https://github.com/Exodia-OS/exodia-powersave-tweaks"
+license=('GPL')
+makedepends=('coreutils')
+depends=('hdparm')
+conflicts=('exodia-performance-tweaks')
+install=$pkgname.install
+
+
+prepare() {
+
+	cp -af ../usr ${srcdir}
+
+}
+
+package() {
+
+    install -d $pkgdir/usr/lib
+    cp -rf $srcdir/usr $pkgdir
+}
